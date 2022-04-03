@@ -1,0 +1,26 @@
+.add-section{
+    place-content: center;
+    display: flex;
+
+    .add-btn{
+        background-color:#6594ef ;
+        color: white;
+        width: 45px;
+        margin-left: 20px;
+    }
+    
+    .combo {
+        width: 220px;
+    }
+}
+
+.add-input{
+    border: none;
+    width: 200px;
+}
+
+.form{
+    border: 1px solid silver;
+    border-radius: 6px;
+    height: 30px;
+}

@@ -1,0 +1,21 @@
+.empty-div{
+    height: 5px;
+}
+
+#tool-bar {
+    place-content: center;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    min-height: 64px;
+    margin-bottom: 20px;
+}
+
