@@ -19,9 +19,7 @@ export async function getData() {
         storageService.save(STORAGE_KEY, allData)
     }
 
-    const arrStr = encodeURIComponent(JSON.stringify(symbolsArray));
-
-    return axios.get(`api/full_data?symbols=${arrStr}`)
+    return axios.post('api/get_full_data', { symbols: symbolsArray })
         .then(({ data }) => data)
 }
 
