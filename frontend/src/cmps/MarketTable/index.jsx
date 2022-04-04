@@ -9,7 +9,7 @@ import  { EnhancedTableToolbar } from '../Toolbar/index.jsx'
 import { addAlert, updateAlert } from '../../store/alert/alert.action'
 import "./index.scss";
 
-const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || "http://localhost:3000";
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL;
 const AUDIO_ALERT_URL = 'https://assets.coderrocketfuel.com/pomodoro-times-up.mp3';
 
 const columns = [
@@ -68,7 +68,7 @@ export class _MarketTable extends React.Component {
             isLoading: false
         })
 
-        const socket = io(SOCKET_URL);
+        const socket = !SOCKET_URL ? io() : io(SOCKET_URL);
         socket.emit("getLiveData", allSymbols)
         socket.on("live data", (msg) => {
             const idx = this.state.realTimeData.findIndex(symbol => symbol[0] === msg[0])
