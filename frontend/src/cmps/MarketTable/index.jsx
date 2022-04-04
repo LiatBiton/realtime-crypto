@@ -30,18 +30,29 @@ const columns = [
     { field: 'col11', headerName: 'LOW', width: 150, headerClassName: 'header-class' },
     ];
 
-export class _MarketTable extends React.Component{
-    state = {
-        allSymbols: [],
-        realTimeData: [],
-        missingSymbols: [],
-        showDetailsModal: false,
-        currSymbol: '',
-        messageAlertModal: false,
-        transferAlertModal: false,
-        selectedRowData: [],
-        rows: [],
-        isLoading: false
+export class _MarketTable extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            allSymbols: [],
+            realTimeData: [],
+            missingSymbols: [],
+            showDetailsModal: false,
+            currSymbol: '',
+            messageAlertModal: false,
+            transferAlertModal: false,
+            selectedRowData: [],
+            rows: [],
+            isLoading: false
+        };
+
+        this.fetchData = this.fetchData.bind(this);
+        this.handlePriceAlerts = this.handlePriceAlerts.bind(this);
+        this.activateAlert = this.activateAlert.bind(this);
+        this.closeMessageModal = this.closeMessageModal.bind(this);
+        this.onRemoveSymbol = this.onRemoveSymbol.bind(this);
+        this.onToggleDetailsModal = this.onToggleDetailsModal.bind(this);
+        this.getTableData = this.getTableData.bind(this);
     }
 
     async fetchData() {
