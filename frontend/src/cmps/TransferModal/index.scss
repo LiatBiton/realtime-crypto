@@ -1,0 +1,36 @@
+.actions{
+    display: flex;
+    place-content: center;
+    margin-bottom: 8px;
+    margin-top: 20px;
+    padding-top: 28px;
+}
+
+.input-transfer-modal{
+    border: none;
+    border-bottom: 1px solid silver;
+    background: none;
+    color: white;
+    width: 100%;
+}
+
+.header-transfer-modal{
+    font-size: 21px;
+}
+
+.inputs{
+    display: flex;
+    align-items: flex-start; 
+    flex-direction: column;
+}
+
+.transfer-modal-save{
+    margin-right: 14px;
+    width: inherit;
+}
+
+.margin{
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+}

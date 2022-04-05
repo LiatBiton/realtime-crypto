@@ -7,7 +7,7 @@ export function MessageModal({ symbol, closeModal }){
         <section className="modal-container">
             <div className="modal-content">
                 <button className="close-btn" onClick={closeModal}>x</button>
-                <h2>{symbol[0]} has just crossed the limit!</h2>
+                <h2><span className="pink">{symbol[0]}</span> has just crossed the limit!</h2>
                 <h3>Current price is : {symbol[7]}</h3>
             </div>
         </section>

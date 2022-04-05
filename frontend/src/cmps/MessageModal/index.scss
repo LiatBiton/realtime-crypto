@@ -1,3 +1,20 @@
 .modal-container .modal-content {
-    padding: 24px;
+    padding: 8px;
 }
+
+.pink{
+    color: rgb(213 103 145);
+}
+
+
+
+   .MuiDataGrid-columnHeaders{
+    background-color: rgb(101 148 239);
+  }
+  
+//   //MUI v5 (notice the class name difference)
+//   "& .MuiDataGrid-virtualScrollerRenderZone": {
+//     "& .MuiDataGrid-row": {
+//       "&:nth-child(2n)": { backgroundColor: "rgba(235, 235, 235, .7)" }
+//     }
+//   }

@@ -9,14 +9,21 @@
     background-color: #474e5d7a;
     padding-top: 50px;
     .modal-content{
-        background-color: #fefefe;
-        margin: 5% auto 15% auto;
-        border: 1px solid #888;
-        width: 30%;
+        background-color: #6594ef;
+        margin: 5% auto 15%;
         text-align: center;
+        width: 30%;
+        box-shadow: 1em 0em 5em 9px rgb(0 0 0 / 30%);
+        color: white;
+        border-radius: 6px;
     }
     .close-btn{
-        margin-left: 94%; 
+        margin-left: 94%;
+        margin-left: 94%;
+        background: none;
+        border: none;
+        color: #e2d0d0;
+        font-size: 15px;
     }
     .ranges{
         display: flex;
@@ -36,6 +43,27 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+    .save-btn{
+        background: rgb(213 103 145);
+        color: white;
+        border: none;
+        padding: 7px 20px;
+        border-radius: 14px; 
+    }
+    .modal-text{
+        padding-right: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .input-alert-modal{
+        border: none;
+        border-bottom: 1px solid silver;
+        background: none;
+        color: white;
+    }
+    .second-row{
+        margin-top: 30px;
     }
 
 }

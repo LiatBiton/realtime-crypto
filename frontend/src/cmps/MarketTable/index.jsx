@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from "react-redux";
 import { io } from "socket.io-client";
 import { DataGrid } from '@mui/x-data-grid';
+import { TableHead } from '@mui/material';
 import { getAllSymbols, getData, removeSymbol } from '../../services/liveData.service'
 import { DetailsModal } from '../DetailsModal/index.jsx'
 import { MessageModal } from '../MessageModal/index.jsx'
+import { TransferModal } from '../TransferModal/index.jsx'
 import  { EnhancedTableToolbar } from '../Toolbar/index.jsx'
 import { addAlert, updateAlert } from '../../store/alert/alert.action'
 import "./index.scss";
@@ -146,6 +148,12 @@ export class _MarketTable extends React.Component {
         });
     }
 
+    closeTransferModal = () =>{
+        this.setState({
+            transferAlertModal: false
+        });
+    }
+
     onRemoveSymbol = () => {
         const symbolsToRemove = this.state.selectedRowData.map(d => d.col1)
         removeSymbol(symbolsToRemove);
@@ -188,6 +196,7 @@ export class _MarketTable extends React.Component {
             currSymbol,
             showDetailsModal,
             messageAlertModal,
+            transferAlertModal,
             selectedRowData,
             isLoading
         } = this.state;
@@ -201,7 +210,7 @@ export class _MarketTable extends React.Component {
                     onAdd={this.fetchData}
                     isLoading={isLoading}/>
                 <div style={{ width: '100%' }}>
-                     <div style={{ height: '80vh'}}>
+                     <div style={{ height: '80vh' }} className='data-grid'>
                         <DataGrid checkboxSelection
                             selectionModel={this.state.selectionModel}
                             onSelectionModelChange={(ids) => {
@@ -215,6 +224,7 @@ export class _MarketTable extends React.Component {
                                     selectionModel: ids
                                 })
                             }}
+                            // MuiDataGrid-columnHeaders = {{background-color: "#b6782f"}}
                             disableSelectionOnClick
                             rows={tableData}
                             columns={columns}
@@ -222,11 +232,16 @@ export class _MarketTable extends React.Component {
                                 event.defaultMuiPrevented = true;
                                 this.onToggleDetailsModal(params.row)
                             }}
-                        />
+                        >
+                        <TableHead style={{ background: 'red' }}>
+
+                        </TableHead>
+                    </DataGrid>
                     </div>
                 </div>
                 {showDetailsModal && <DetailsModal symbol={currSymbol} closeModal={this.onToggleDetailsModal}/>}
                 {messageAlertModal && <MessageModal symbol={currSymbol} closeModal={this.closeMessageModal}/>}
+                {transferAlertModal && <TransferModal symbol={currSymbol} closeModal={this.closeTransferModal}/>}
             </section>
         )
     }

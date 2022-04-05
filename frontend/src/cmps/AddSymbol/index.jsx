@@ -7,6 +7,8 @@ import "./index.scss";
 
 export function AddCmp({ addOptions, onAdd, isLoading = false }){
     const [symbol, setSymbol] = useState('');
+    const [value, setValue] = React.useState('');
+    const [inputValue, setInputValue] = React.useState('');
 
     const onAddSymbol = () => {
         addSymbol(symbol)
@@ -17,16 +19,23 @@ export function AddCmp({ addOptions, onAdd, isLoading = false }){
     return (
         <section className='add-section'>
             <Autocomplete
+                disablePortal
                 id="combo-box"
                 className="combo"
-                options={addOptions}
                 value={symbol}
-                inputValue={symbol}
-                onChange={(e, newValue) => setSymbol(newValue)}
+                onChange={(event, newValue) => {
+                    setValue(newValue);
+                    setSymbol(newValue)
+                  }}
+                inputValue={inputValue}
+                onInputChange={(event, newInputValue) => {
+                    setInputValue(newInputValue);
+                }}
                 renderInput={(params) => <TextField {...params} label="Select symbol"/>}
                 isOptionEqualToValue={(option, value) => 
                     value === "" || option === value
                 }
+                options={addOptions}
                 />
             <LoadingButton
                 className="add-btn"
