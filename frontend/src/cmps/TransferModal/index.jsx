@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
 import "./index.scss";
 
 export function TransferModal({ symbol, closeModal }){
@@ -36,7 +37,7 @@ export function TransferModal({ symbol, closeModal }){
             <div className="modal-content">
                 <button className="close-btn" onClick={closeModal}>x</button>
                 <h2 className="header-transfer-modal"><span className="bold">{symbol[0]}</span> has just crossed the limit!</h2>
-                <h3>Current price is : {symbol[7]}</h3>
+                <h3 className="modal-second-header">Current price is : {symbol[7]}</h3>
 
                 <section className="alerts">
                     <p>What action would you like to do?</p>
@@ -55,13 +56,33 @@ export function TransferModal({ symbol, closeModal }){
                         </ThemeProvider>
                         </div>
                         <div className="margin">
-                            <label htmlFor="rate">Rate:</label>
-                            <input className="input-transfer-modal" type="number" min="0" max="1" step="0.01" id="rate" name="rate" onChange={(ev)=>setCount(ev.target.value)}/>
+                            <TextField
+                                id="outlined-number"
+                                label="Rate"
+                                type="number"
+                                name="rate"
+                                min="0"
+                                max="1"
+                                inputProps={{
+                                    step:"0.01"
+                                }}
+                                id="rate"
+                                onChange={(ev)=>setCount(ev.target.value)}
+                            />
                         </div>
 
                         <div className="margin">
-                            <label htmlFor="count">Count:</label>
-                            <input className="input-transfer-modal" type="number" min="0" step="1" id="count" name="count" onChange={(ev)=>setRate(ev.target.value)}/>
+                            <TextField
+                                id="outlined-number"
+                                label="Count"
+                                type="number"
+                                name="count"
+                                min="0"
+                                max="1"
+                                step="1"
+                                id="count"
+                                onChange={(ev)=>setRate(ev.target.value)}
+                            />
                         </div>
                     </div>
                 </section>  

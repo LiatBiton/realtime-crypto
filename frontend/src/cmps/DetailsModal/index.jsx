@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 import { addAlert } from '../../store/alert/alert.action';
+import TextField from '@mui/material/TextField';
+
 import "./index.scss";
 
 export function _DetailsModal({ symbol, closeModal, addAlert }){
@@ -23,20 +25,46 @@ export function _DetailsModal({ symbol, closeModal, addAlert }){
             <div className="modal-content">
                 <button className="close-btn" onClick={closeModal}>x</button>
                 <div className="modal-text">
-                    <h1>Please notify me when {symbol[0]}:</h1>
+                    <h1 className="modal-header">Please notify me when {symbol[0]}:</h1>
                         <section className="ranges">
-                            <div className="range">
-                                <label htmlFor="top-range">Goes up to:</label>
-                                <input className="input-alert-modal" type="number" id="top-range" name="top-range" onChange={(ev)=>setTopRange(ev.target.value)}/>
-                                <label className="second-row" htmlFor="top-range-percent">In Percent</label>
-                                <input className="input-alert-modal" type="number" min="0" max="1" step="0.01" id="top-range-percent" name="top-range-percent" onChange={(ev)=>setTopPercent(ev.target.value)}/>
-                            </div>
-                            <div className="range">
-                                <label htmlFor="bottom-range">Goes lower than:</label>
-                                <input className="input-alert-modal" type="number" id="bottom-range" name="bottom-range" onChange={(ev)=>setBottomRange(ev.target.value)}/>
-                                <label className="second-row" htmlFor="bottom-range-percent">In Percent</label>
-                                <input className="input-alert-modal" type="number" min="0" max="1" step="0.01" id="bottom-range-percent" name="bottom-range-percent" onChange={(ev)=>setBottomPercent(ev.target.value)}/>
-                            </div>
+                                <div className="range">
+                                <TextField
+                                    id="outlined-number"
+                                    label="Goes up to"
+                                    type="number"
+                                    name="top-range"
+                                    onChange={(ev)=>setTopRange(ev.target.value)}
+                                />
+                                <div className="second-row">
+                                <TextField
+                                    id="outlined-number"
+                                    label="In Percent"
+                                    type="number"
+                                    min="0" max="1" step="0.01" 
+                                    name="top-range-percent"
+                                    onChange={(ev)=>setTopPercent(ev.target.value)}
+                                />
+                                </div>
+                                </div>
+                                <div className="range">
+                                    <TextField
+                                    id="outlined-number"
+                                    label="Goes lower than"
+                                    type="number"
+                                    name="bottom-range"
+                                    onChange={(ev)=>setBottomRange(ev.target.value)}
+                                />
+                                <div className="second-row">
+                                <TextField
+                                    id="outlined-number"
+                                    label="In Percent"
+                                    type="number"
+                                    min="0" max="1" step="0.01" 
+                                    name="bottom-range-percent"
+                                    onChange={(ev)=>setBottomPercent(ev.target.value)}
+                                />
+                                </div>
+                                </div>
                         </section>
                         <section className="alerts">
                             <p>How would you like us to alert you?</p>
