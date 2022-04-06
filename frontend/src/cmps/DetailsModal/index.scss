@@ -24,10 +24,12 @@
         border: none;
         color: #e2d0d0;
         font-size: 15px;
+        cursor: pointer;
     }
     .ranges{
         display: flex;
         justify-content: space-around;
+        margin: 48px 0px;
     }
     .range{
         display: flex;
@@ -45,11 +47,14 @@
         align-items: flex-start;
     }
     .save-btn{
-        background: rgb(213 103 145);
-        color: white;
+        background: white;
         border: none;
+        border-radius: 14px;
+        color: #6ba1e2;
+        font-weight: 900;
         padding: 7px 20px;
-        border-radius: 14px; 
+        margin-bottom: 10px;
+        cursor: pointer;
     }
     .modal-text{
         padding-right: 16px;
